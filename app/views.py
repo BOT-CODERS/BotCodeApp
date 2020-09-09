@@ -30,17 +30,8 @@ def get_continuous_chunks(text):
 
 def home(request):
 
-    return render(request,'home.html')  #passing object dynamically 
+    return render(request,'home.html') 
 def add(request):
-    query=request.POST['query']
-    query=query.upper()
+    query=request.POST('query')
     res=get_continuous_chunks(query)
-    dest1=Destination()
-    dest1.name="Java"  #keeping the name of class variable
-    dest1.desc="This is Java"
-    dest2=Destination()
-    dest2.name="Python"  #keeping the name of class variable
-    dest2.desc="This is python"
-    dests=[dest1,dest2]  #creating list of objects
-    
-    return render(request,"result.html",{"result":res,'dests':dests})
+    return render(request,"result.html",{"result":res})
