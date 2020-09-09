@@ -1,0 +1,21 @@
+
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+
+</head>
+<form action="add" method="post">
+{% csrf_token %}
+<h1>Enter your query </h1><input type="text" name="query"></br>
+<input type="submit" value="Add">
+</form>
+</html>
