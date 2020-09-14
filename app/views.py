@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import nltk
-from .models import Destination #importing class from models
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
 #from django.http import HttpResponse
@@ -29,9 +28,9 @@ def get_continuous_chunks(text):
     return continuous_chunk
 
 def home(request):
-
     return render(request,'home.html') 
+
 def add(request):
-    query=request.POST('query')
+    query=request.GET['query']
     res=get_continuous_chunks(query)
     return render(request,"result.html",{"result":res})
