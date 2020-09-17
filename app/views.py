@@ -34,3 +34,27 @@ def add(request):
     query=request.GET['query']
     res=get_continuous_chunks(query)
     return render(request,"result.html",{"result":res})
+
+def search(request):
+    if request.method=='POST':
+        qry_entered=request.POST.get('query')
+        #print(qry_entered)
+        return render(request,'search.html',{'dict':qry_entered,'wikipedia_result':scrape_wikipedia(qry_entered)})
+        #{'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})    
+    else:
+        return render(request,'search.html')
+
+
+def developers(request):
+    return render(request,'developers.html')
+
+#wikipedia scrape begins
+def scrape_wikipedia(qry):
+    import wikipedia
+
+    list_returned=wikipedia.search("what the hell is this python")  #return a list
+    #print(list_returned[0])
+    #print(wikipedia.summary(list_returned[0]))
+    return wikipedia.summary(list_returned[0])
+
+#wikipedia scrape ends

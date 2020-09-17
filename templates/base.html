@@ -1,0 +1,32 @@
+<!--Base.html is a file that we'll be extending in our html files.It has the common HTML code for HTML files-->
+
+{% load static %}
+<!--To load our static files from the location specified in settings.py-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'scraping_app/main.css' %}">
+
+    <title>BotCode</title>
+</head>
+
+<body>
+    <!--You can add navbar code here-->
+
+    <div class="container">
+
+        {% block content %}
+        <!--HTML code of other files will be included here-->
+        {% endblock content %}
+    </div>
+
+</body>
+
+</html>

@@ -1,21 +1,14 @@
-
-<html>
-<head>
-<style>
-body {
-  background-color: linen;
-}
-
-h1 {
-  color: maroon;
-  margin-left: 40px;
-}
-</style>
-
-</head>
-<form action="add" method="get">
-{% csrf_token %}
-<h1>Enter your query </h1><input type="text" name="query"></br>
-<input type="submit" value="Add">
-</form>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+<center>
+  This is going to be our home page!
+  <br>
+  Quote that can be added at the centre:
+  <h1>" You're not learning in the right way,<br> If you're not questioning! "</h1>
+  <br><br>
+  <a href="{% url 'search' %}">Do you have a question?</a>
+  <br><br>
+  <a href="{% url 'developers' %}">About the developers</a>
+</center>
+{% endblock content %}
