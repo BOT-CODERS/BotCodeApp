@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'app/base.html' %}
 <!--
 <html>
 <head>
@@ -22,16 +22,16 @@ h1 {
 </html>-->
 {% block content %}
 <form method="POST" style="padding-top:50px;">
-    {%  csrf_token %}
-    <input type="textarea" name="query" placeholder="Your Query"><br><br>
-    <!-- <label>Choose website to search on:</label>
+  {%  csrf_token %}
+  <input type="textarea" name="query" placeholder="Your Query"><br><br>
+  <!-- <label>Choose website to search on:</label>
      <select name="website" id="website">
     <option value="wikipedia">wikipedia</option>
     <option value="stackoverflow">stackoverflow</option>
   </select>
 -->
-    <br>
-    <input type="submit" value="Submit">
+  <br>
+  <input type="submit" value="Submit">
 </form>
 <br><br>
 

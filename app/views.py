@@ -28,25 +28,25 @@ def get_continuous_chunks(text):
     return continuous_chunk
 
 def home(request):
-    return render(request,'home.html') 
+    return render(request,'app/home.html') 
 
 def add(request):
     query=request.GET['query']
     res=get_continuous_chunks(query)
-    return render(request,"result.html",{"result":res})
+    return render(request,"app/result.html",{"result":res})
 
 def search(request):
     if request.method=='POST':
         qry_entered=request.POST.get('query')
         #print(qry_entered)
-        return render(request,'search.html',{'dict':qry_entered,'wikipedia_result':scrape_wikipedia(qry_entered)})
+        return render(request,'app/search.html',{'dict':qry_entered,'wikipedia_result':scrape_wikipedia(qry_entered)})
         #{'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})    
     else:
-        return render(request,'search.html')
+        return render(request,'app/search.html')
 
 
 def developers(request):
-    return render(request,'developers.html')
+    return render(request,'app/developers.html')
 
 #wikipedia scrape begins
 def scrape_wikipedia(qry):
