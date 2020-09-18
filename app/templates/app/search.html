@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+<!--
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+
+</head>
+<form action="add" method="get">
+{% csrf_token %}
+<h1>Enter your query </h1><input type="text" name="query"></br>
+<input type="submit" value="Add">
+</form>
+</html>-->
+{% block content %}
+<form method="POST" style="padding-top:50px;">
+  {%  csrf_token %}
+  <input type="textarea" name="query" placeholder="Your Query"><br><br>
+  <!-- <label>Choose website to search on:</label>
+     <select name="website" id="website">
+    <option value="wikipedia">wikipedia</option>
+    <option value="stackoverflow">stackoverflow</option>
+  </select>
+-->
+  <br>
+  <input type="submit" value="Submit">
+</form>
+<br><br>
+
+{% if dict %}
+<h1>Results for {{dict}} :
+</h1>
+{% endif %}
+{% if wikipedia_result %}
+<br>
+<h3>Results from wikipedia:</h3>
+{{wikipedia_result}}
+{% endif %}
+<!--
+<ul>
+    {% for res in search_results_key %}
+    <li><a href={{res}}>{{res}}</a></li><br>
+    {% endfor %}
+</ul>
+-->
+{% endblock content %}

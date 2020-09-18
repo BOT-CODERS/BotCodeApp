@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ import os
 TEMPLATES = [
     {  
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,10 +116,13 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR=[
-    os.path.join(BASE_DIR,'BotCode/static')
-]
-STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+
+
+
+#to work with static files,we've to specify the path to look for static files here
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'static/'),
+)
