@@ -1,4 +1,6 @@
 {% extends 'app/base.html' %}
+{% block content %}
+
 <!--
 <html>
 <head>
@@ -20,30 +22,74 @@ h1 {
 <input type="submit" value="Add">
 </form>
 </html>-->
-{% block content %}
-<form method="POST" style="padding-top:50px;">
-  {%  csrf_token %}
-  <input type="textarea" name="query" placeholder="Your Query"><br><br>
-  <!-- <label>Choose website to search on:</label>
-     <select name="website" id="website">
-    <option value="wikipedia">wikipedia</option>
-    <option value="stackoverflow">stackoverflow</option>
-  </select>
--->
-  <br>
-  <input type="submit" value="Submit">
-</form>
-<br><br>
 
-{% if dict %}
-<h1>Results for {{dict}} :
-</h1>
-{% endif %}
-{% if wikipedia_result %}
-<br>
-<h3>Results from wikipedia:</h3>
-{{wikipedia_result}}
-{% endif %}
+
+    <div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+
+                    <p class="text-grey text-spacey hackerFont lead mb-5">
+                        Ask to know the truth<span class="vim-caret">&nbsp;</span>
+                    </p>
+                    <form method='post'>
+                    <div class="input-group mb-3">
+                         {% csrf_token %}
+                        <input type="text" class="form-control" name="query" placeholder="Your Query"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" value="Submit">Search !</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--<form method="POST" style="padding-top:50px;">-->
+<!--    {%  csrf_token %}-->
+<!--    <input type="textarea" name="query" placeholder="Your Query"><br><br>-->
+<!--    &lt;!&ndash; <label>Choose website to search on:</label>-->
+<!--     <select name="website" id="website">-->
+<!--    <option value="wikipedia">wikipedia</option>-->
+<!--    <option value="stackoverflow">stackoverflow</option>-->
+<!--  </select>-->
+<!--&ndash;&gt;-->
+<!--    <br>-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+<div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+
+                {% if dict %}
+                <h3>Results for {{dict}} :
+                </h3>
+ <h1 class="display-1 bold color_white content__title text-center"><span class="color_danger"></span>WE
+                    FOUND THIS<span class="vim-caret">&nbsp;</span></h1>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 50%"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                {% endif %}
+                {% if wikipedia_result %}
+                <br>
+                <h3>Results from wikipedia:</h3>
+                <p class="text-grey text-spacey hackerFont lead mb-5">
+                       {{ wikipedia_result }} <span class="vim-caret">&nbsp;</span>
+                    </p>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--
 <ul>
     {% for res in search_results_key %}
@@ -51,4 +97,6 @@ h1 {
     {% endfor %}
 </ul>
 -->
+
+
 {% endblock content %}

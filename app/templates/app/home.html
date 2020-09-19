@@ -1,14 +1,44 @@
 {% extends 'app/base.html' %}
 {% block content %}
-<br><br><br><br>
-<center>
-  This is going to be our home page!
-  <br>
-  Quote that can be added at the centre:
-  <h1>" You're not learning in the right way,<br> If you're not questioning! "</h1>
-  <br><br>
-  <a href="{% url 'search' %}">Do you have a question?</a>
-  <br><br>
-  <a href="{% url 'developers' %}">About the developers</a>
-</center>
+
+<!--  This is going to be our home page!-->
+<!--  <br>-->
+<!--  Quote that can be added at the centre:-->
+<!--  <h1>" You're not learning in the right way,<br> If you're not questioning! "</h1>-->
+<!--  <br><br>-->
+<!--  <a href="{% url 'search' %}">Do you have a question?</a>-->
+<!--  <br><br>-->
+<!--  <a href="{% url 'developers' %}">About the developers</a>-->
+<body class="imgloaded">
+
+
+
+        <div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <h1 class="display-1 bold color_white content__title">BOTCODERS<span class="vim-caret">&nbsp;</span></h1>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4">
+                        <p class="mt-5 text-grey text-spacey hackerFont lead">
+                           " You're not learning in the right way, If you're not questioning! "
+                        </p>
+                        <button class="btn btn-block btn-outline-secondary btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left typewriter" onclick="location.href = '{% url 'search' %}';">
+                            <h4>lETS SEARCH </h4>
+                        </button>
+                      <button class="btn btn-block btn-outline-secondary btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left typewriter" onclick="location.href = '{% url 'developers' %}';">
+                            <h4>MEET DEVELOPERS </h4>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 {% endblock content %}
