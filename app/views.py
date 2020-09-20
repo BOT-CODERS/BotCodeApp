@@ -10,9 +10,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 Driver_Path = 'D:/BasithWork/my python Prgrms/web scraping/Job scraper/chromedriver'
-
+#change driver path according to local storage
 # from django.http import HttpResponse
-# import nltk
+# nltk named entity start here
 def get_continuous_chunks(text):
     chunked = ne_chunk(pos_tag(word_tokenize(text)))
     prev = None
@@ -53,8 +53,14 @@ def search(request):
     if request.method == 'POST':
         qry_entered = request.POST.get('query')
         # print(qry_entered)
+        qry_entered=qry_entered.title()
+        named_entity=get_continuous_chunks(qry_entered)
+        if(len(named_entity)==0):
+            named_entity=qry_entered
+        else:
+            named_entity=(' ').join(named_entity)
         return render(request, 'app/search.html',
-                      {'dict': qry_entered, 'wikipedia_result': scrape_wikipedia(qry_entered),'stack_overflow_result':stackoverflow(qry_entered),'general_answer':general_answer(qry_entered,Driver_Path)})
+                      {'dict': named_entity, 'wikipedia_result': scrape_wikipedia(qry_entered),'stack_overflow_result':stackoverflow(qry_entered),'general_answer':general_answer(qry_entered,Driver_Path)})
         # {'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})
     else:
         return render(request, 'app/search.html')
