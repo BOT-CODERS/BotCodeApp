@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+    <div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h1 class="display-1 bold color_white content__title text-center"><span class="color_danger">ABOUT</span>US<span class="vim-caret">&nbsp;</span></h1>
+
+                    <div class="row justify-content-center hackerFont">
+                        <div class="col-md-8">
+                            <h5 class="bold color_white pt-3">
+                                What is BOTCODE?
+                            </h5>
+
+                                This is a bot that automates a solving tasks on a website.
+                            <br>
+                                 We created a bot which seraches solution on Google and provides the best solution on the plateform.
+                            <h5 class="bold color_white pt-3">
+
+                            </h5>
+
+                            <div class="row text-center pt-5">
+                                <div class="col-xl-12">
+                                   <button class="btn btn-block btn-outline-secondary btn-shadow px-3 my-2 ml-0 ml-sm-1  typewriter" onclick="location.href = '{% url 'search' %}';">
+                            <h4>lETS SEARCH </h4>
+
+                        </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
