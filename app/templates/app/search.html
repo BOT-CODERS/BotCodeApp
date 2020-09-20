@@ -24,28 +24,28 @@ h1 {
 </html>-->
 
 
-    <div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-8">
+<div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8">
 
-                    <p class="text-grey text-spacey hackerFont lead mb-5">
-                        Ask to know the truth<span class="vim-caret">&nbsp;</span>
-                    </p>
-                    <form method='post'>
+                <p class="text-grey text-spacey hackerFont lead mb-5">
+                    Ask to know the truth<span class="vim-caret">&nbsp;</span>
+                </p>
+                <form method='post'>
                     <div class="input-group mb-3">
-                         {% csrf_token %}
+                        {% csrf_token %}
                         <input type="text" class="form-control" name="query" placeholder="Your Query"
-                               aria-describedby="basic-addon2">
+                            aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit" value="Submit">Search !</button>
                         </div>
                     </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
 
 <!--<form method="POST" style="padding-top:50px;">-->
@@ -66,25 +66,41 @@ h1 {
         <div class="row">
             <div class="col-xl-12">
 
-<!--                to show the progress bar-->
-<!--            <div class="progress">-->
-<!--                    <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 40%"-->
-<!--                         aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>-->
-<!--                </div>-->
+                <!--                to show the progress bar-->
+                <!--            <div class="progress">-->
+                <!--                    <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 40%"-->
+                <!--                         aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>-->
+                <!--                </div>-->
 
                 {% if dict %}
                 <h3>Results for {{dict}} :
                 </h3>
-            <h1 class="display-1 bold color_white content__title text-center"><span class="color_danger"></span>
-                WE FOUND THIS<span class="vim-caret">&nbsp;</span></h1>
+                <h1 class="display-1 bold color_white content__title text-center"><span class="color_danger"></span>
+                    WE FOUND THIS<span class="vim-caret">&nbsp;</span></h1>
 
                 {% endif %}
                 {% if wikipedia_result %}
                 <br>
                 <h3>Results from wikipedia:</h3>
                 <p class="text-grey text-spacey hackerFont lead mb-5">
-                       {{ wikipedia_result }} <span class="vim-caret">&nbsp;</span>
-                    </p>
+                    {{ wikipedia_result }} <span class="vim-caret">&nbsp;</span>
+                </p>
+
+                {% endif %}
+                {% if stack_overflow_result %}
+                <h3>Results from stackoverflow</h3>
+                <p class="text-grey text-spacey hackerFont lead mb-5">
+                    {% for i in stack_overflow_result %}
+                <p>{{i}}</p>
+                {% endfor %}
+                </p>
+                {% endif %}
+                {% if general_answer %}
+                <br>
+                <h3>General Results:</h3>
+                <p class="text-grey text-spacey hackerFont lead mb-5">
+                    {{ general_answer }} <span class="vim-caret">&nbsp;</span>
+                </p>
 
                 {% endif %}
             </div>
