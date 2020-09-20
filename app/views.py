@@ -42,12 +42,6 @@ def about(request):
     return render(request, 'app/about.html')
 
 
-def add(request):
-    query = request.GET['query']
-    res = get_continuous_chunks(query)
-    return render(request, "app/result.html", {"result": res})
-
-
 def search(request):
     if request.method == 'POST':
         qry_entered = request.POST.get('query')
