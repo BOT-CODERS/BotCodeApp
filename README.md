@@ -4,11 +4,16 @@
 
 ## HOW TO RUN THE BOT?
 
-- Make a vertual environment using
+- Make a virtual environment using
 ```
 virtualenv <env. name> 
 ```
   Example: ``` virtualenv venv```
+  
+ - Activate the environment:
+ ```
+ source <env.name>/bin/activate
+ ```
 
 - Run the following command to install the dependencies:
 ```
