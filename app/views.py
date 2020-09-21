@@ -13,7 +13,7 @@ nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
-Driver_Path = '/home/rutuja/Documents/chromedriver'
+Driver_Path = 'E:/chromedriver'
 
 
 # change driver path according to local storage
@@ -59,17 +59,21 @@ def search(request):
     if request.method == 'POST':
         qry_entered = request.POST.get('query')
         site = request.POST.get('site')
-        print(site)
+
         qry_entered = qry_entered.title()
         named_entity = get_continuous_chunks(qry_entered)
         if (len(named_entity) == 0):
             named_entity = qry_entered
         else:
             named_entity = (' ').join(named_entity)
-        return render(request, 'app/search.html',
-                      {'dict': named_entity, 'wikipedia_result': scrape_wikipedia(qry_entered),
-                       'stack_overflow_result': stackoverflow(qry_entered),
-                       'general_answer': general_answer(qry_entered, Driver_Path)})
+
+        result_dict = {'dict': named_entity}
+        site_dict = {'general_answer': general_answer(qry_entered, Driver_Path)} if site=='1' else\
+                     {'wikipedia_result': scrape_wikipedia(qry_entered)} if site=='2' else\
+                     {'stack_overflow_result': stackoverflow(qry_entered)}
+
+        result_dict.update(site_dict)
+        return render(request, 'app/search.html', result_dict)
         # {'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})
     else:
         return render(request, 'app/search.html')
@@ -110,8 +114,8 @@ def get_ques_text_and_link(q):
     q = question.select_one('.question-hyperlink')
     link = "https://stackoverflow.com" + q["href"]
     ques_text = q.getText()
-    print(ques_text)
-    print(link)
+    # print(ques_text)
+    # print(link)
     return ques_text, link
 
 
@@ -172,10 +176,10 @@ def general_answer(q, PATH):
             "module__text")  # use "module__content to get the full card text"
         text = [i.text for i in result_elements]
         # print(*text, sep='\n')
-        return text
+        return str(*text)
 
         # with open('Apoorve/duck-duck-go/card_content.txt', 'w') as outfile:
-        # 	outfile.write('\n'.join(text))
+        #   outfile.write('\n'.join(text))
         # print('\nOpen card_content.txt')
         # exit()
 
@@ -190,7 +194,7 @@ def general_answer(q, PATH):
         # print(*snippets, sep='\n')
         return snippets
         # with open('Apoorve/scrape_finalesearch_result_snippets.txt', 'w') as outfile:
-        # 	outfile.write('\n'.join(snippets))
+        #   outfile.write('\n'.join(snippets))
         # print('\nOpen search_result_snippets.txt')
 
     except Exception as e:
