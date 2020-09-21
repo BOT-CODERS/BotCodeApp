@@ -9,7 +9,12 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-Driver_Path = 'D:/BasithWork/my python Prgrms/web scraping/Job scraper/chromedriver'
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+nltk.download('averaged_perceptron_tagger')
+
+
+Driver_Path = '/home/apoorve/My Github Repos/BotCodeApp/chromedriver'
 #change driver path according to local storage
 # from django.http import HttpResponse
 # nltk named entity start here

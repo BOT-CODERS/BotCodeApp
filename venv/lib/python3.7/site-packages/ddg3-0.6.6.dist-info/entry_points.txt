@@ -1,0 +1,3 @@
+[console_scripts]
+ddg3 = ddg3:main
+
