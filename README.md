@@ -1,8 +1,37 @@
 # BotCodeApp
-A smart search engine to summarize big content obtained from web pages
-Built using python Django 2.2
-$ pip install django==2.2.15
-Better to make a virtual environment and install there.
-To run the project,
-Go to the directory where "manage.py" is present and run the command,
-$ python manage.py runserver
+
+### A smart search engine to summarize big content obtained from web pages
+
+## HOW TO RUN THE BOT?
+
+- Make a vertual environment using
+```
+virtualenv <env. name> 
+```
+  Example: ``` virtualenv venv```
+
+- Run the following command to install the dependencies:
+```
+pip install -r requirements.txt
+```
+
+- Now, download the chromedriver, based on your Google Chrome version, and add it to the root directory.
+
+- Copy the path of this driver, and open app/views.py and look for a variable named:
+```
+Driver_Path
+```
+
+- Replace the string assigned to that variable, with the path of your driver.
+  
+  Example:
+```
+Driver_Path = 'BotCodeApp/chromedriver'
+```
+
+- Go back to Terminal/Command Prompt, and type in the following command to run the project.
+```
+python manage.py runserver
+```
+
+# :sparkles: HURRAY! YOU ARE NOW A BOTCODE USER! :) 
