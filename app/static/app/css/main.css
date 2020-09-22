@@ -59,6 +59,184 @@ body {
     background-position-x: 350px;
     background-color: #00040d;
 }
+.sec-title{
+    position:relative;
+    margin-bottom:60px;
+}
+
+.sec-title .title{
+    position: relative;
+    display: block;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+.speakers-section{
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 145px 0 90px;
+    overflow:hidden;
+}
+
+.speaker-block{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.speaker-block .inner-box{
+    position: relative;
+}
+
+.speaker-block .image-box{
+    position: relative;
+    padding: 20px;
+    background-color: rgba(255,255,255,.15);
+    overflow: hidden;
+}
+
+.speaker-block .image-box .image:after,
+.speaker-block .image-box:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    background-color: #ffffff;
+    content: "";
+    transition: all 700ms ease;
+}
+
+.speaker-block .inner-box:hover .image-box .image:after,
+.speaker-block .inner-box:hover .image-box:before{
+    height: 100%;
+}
+
+.speaker-block .image-box .image:after{
+    opacity: .40;
+    z-index: 1;
+    top: auto;
+    bottom: 0;
+    background-color: #1d1e2f;
+}
+
+.speaker-block .image-box .image{
+    position: relative;
+    margin-bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.speaker-block .image-box .image img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.speaker-block .social-links{
+    position: absolute;
+    left: 0;
+    bottom: -140px;
+    padding: 20px;
+    width: 100%;
+    z-index: 9;
+    transition: all 700ms ease;
+}
+
+.speaker-block .social-links ul{
+    position: relative;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #007bff;
+}
+
+.speaker-block .social-links li{
+    position: relative;
+    display: inline-block;
+    margin: 0 9px;
+}
+
+.speaker-block .social-links li a{
+    position: relative;
+    display: block;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #ffffff;
+    transition: all 300ms ease;
+}
+
+.speaker-block .social-links li a:hover{
+    color: #ffffff;
+}
+
+.speaker-block .inner-box:hover .social-links{
+    bottom: 0;
+}
+
+.speaker-block .caption-box{
+    position: relative;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.speaker-block .caption-box .name{
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.speaker-block .caption-box .name a{
+    color: #ffffff;
+    display: inline-block;
+    transition: all 300ms ease;
+}
+
+.speaker-block .caption-box .name a:hover{
+    color: #fff;
+}
+
+.speaker-block .caption-box .designation{
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-weight: 400;
+    opacity: .70;
+}
+
+ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
 #rightImage {
     width:100%;
     height:95vh;
@@ -82,8 +260,7 @@ body {
     font-weight: bold;
 }
 
-h1,
-h2 {
+h1 {
     font-family: 'PhelixBoomgartner'!important;
 }
 
