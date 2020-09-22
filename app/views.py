@@ -51,7 +51,7 @@ def add(request):
 def search(request):
     if request.method == 'POST':
         qry_entered = request.POST.get('query')
-        print(qry_entered)
+        # print(qry_entered)
         return render(request, 'app/search.html',
                       {'dict': qry_entered, 'wikipedia_result': scrape_wikipedia(qry_entered)})
         # {'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})
