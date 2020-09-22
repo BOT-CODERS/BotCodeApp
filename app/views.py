@@ -13,7 +13,7 @@ nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
-Driver_Path = '/home/rutuja/Documents/chromedriver'
+Driver_Path = '/home/apoorve/My Github Repos/BotCodeApp/chromedriver'
 
 
 # change driver path according to local storage
