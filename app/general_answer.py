@@ -1,12 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from . import wiki_answer as wiki
 
 def general_answer(q, PATH):
     url = f'https://duckduckgo.com/?q={q.lower().replace(" ", "+")}&ia=web'
     # print(url)
     options = Options()
     options.headless = True
-    driver = webdriver.Chrome(executable_path=PATH, options=options)
+
+    try:
+        driver = webdriver.Chrome(executable_path=PATH, options=options)
+    except:
+        message = "OOPS! Our SEO suggests searching this query in other options! \n THANK YOU! :)"
+        return message
 
     driver.get(url)
 

@@ -11,7 +11,7 @@ nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
-Driver_Path = '/home/apoorve/My Github Repos/BotCodeApp/Driver/chromedriver'
+Driver_Path = "app/chromedriver"
 
 # change driver path according to local storage
 # from django.http import HttpResponse
