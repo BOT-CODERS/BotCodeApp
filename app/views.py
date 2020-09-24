@@ -14,7 +14,7 @@ nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
 
-Driver_Path = '/home/apoorve/My Github Repos/BotCodeApp/chromedriver'
+Driver_Path = 'Users\maazb\Documents\GitHub\BotCodeApp\chromedriver'
 #change driver path according to local storage
 # from django.http import HttpResponse
 # nltk named entity start here
