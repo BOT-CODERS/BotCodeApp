@@ -14,7 +14,7 @@ nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
 
-Driver_Path = 'chromedriver'
+Driver_Path = 'app/chromedriver'
 #change driver path according to local storage
 # from django.http import HttpResponse
 # nltk named entity start here
