@@ -9,10 +9,21 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+import platform
+
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
+<<<<<<< HEAD
+OS = platform.system()
+if(OS == "Linux") :
+	Driver_Path = "app/Linux/chromedriver"
+
+elif(OS == "Windows")
+	Driver_Path = "app/Win/chromedriver.exe"
+=======
+>>>>>>> 32e4dafc755bdf2e31f11d6c45e4391751d5f784
 
 Driver_Path = 'app/chromedriver'
 #change driver path according to local storage
