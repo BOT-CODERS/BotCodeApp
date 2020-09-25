@@ -7,11 +7,18 @@ from . import wiki_answer as wiki
 from . import general_answer as gen
 from . import stackoverflow as stack
 
+import platform
+
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
-Driver_Path = "app/chromedriver"
+OS = platform.system()
+if(OS == "Linux") :
+	Driver_Path = "app/Linux/chromedriver"
+
+elif(OS == "Windows")
+	Driver_Path = "app/Win/chromedriver"
 
 # change driver path according to local storage
 # from django.http import HttpResponse
