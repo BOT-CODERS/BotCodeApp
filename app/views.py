@@ -21,7 +21,7 @@ if(OS == "Linux") :
 	Driver_Path = "app/Linux/chromedriver"
 
 elif(OS == "Windows")
-	Driver_Path = "app/Win/chromedriver"
+	Driver_Path = "app/Win/chromedriver.exe"
 =======
 >>>>>>> 32e4dafc755bdf2e31f11d6c45e4391751d5f784
 
