@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+
 import nltk
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
@@ -65,16 +67,22 @@ def about(request):
 def search(request):
     if request.method == 'POST':
         qry_entered = request.POST.get('query')
-        # print(qry_entered)
-        qry_entered=qry_entered.title()
-        named_entity=get_continuous_chunks(qry_entered)
-        if(len(named_entity)==0):
-            named_entity=qry_entered
+        site = request.POST.get('site')
+        qry_entered = qry_entered.title()
+        named_entity = get_continuous_chunks(qry_entered)
+        if (len(named_entity) == 0):
+            named_entity = qry_entered
         else:
-            named_entity=(' ').join(named_entity)
-        return render(request, 'app/search.html',
-                      {'dict': named_entity, 'wikipedia_result': scrape_wikipedia(qry_entered),'stack_overflow_result':stackoverflow(qry_entered),'general_answer':general_answer(qry_entered,Driver_Path)})
-        # {'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})
+            named_entity = (' ').join(named_entity)
+
+        result_dict = {'dict': named_entity}
+        site_dict = {'ans': general_answer(qry_entered, Driver_Path), 'site': 'General'} if site=='1' else\
+                     {'ans': scrape_wikipedia(qry_entered), 'site': 'Wikipedia'} if site=='2' else\
+                     {'ans': stackoverflow(qry_entered), 'site': 'StackOverflow'}
+
+        result_dict.update(site_dict)
+        # return render(request, 'app/search.html', result_dict)
+        return JsonResponse(result_dict)
     else:
         return render(request, 'app/search.html')
 
