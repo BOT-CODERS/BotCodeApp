@@ -17,7 +17,7 @@ OS = platform.system()
 if(OS == "Linux") :
 	Driver_Path = "app/Linux/chromedriver"
 
-elif(OS == "Windows")
+elif(OS == "Windows"):
 	Driver_Path = "app/Win/chromedriver"
 
 # change driver path according to local storage
