@@ -127,11 +127,15 @@ body {
     z-index: 1;
     overflow: hidden;
 }
-
 .speaker-block .image-box .image img{
     display: block;
     width: 100%;
-    height: auto;
+    height: 387px;
+    object-fit: cover;
+}
+
+.speaker-block .social-links li .fab {
+    font-size: 50px;
 }
 
 .speaker-block .social-links{
@@ -817,4 +821,179 @@ span.fail:after {
 
 #main {
     display: none;
+}
+
+/*-------------------------------------------*/
+.loader {
+    display: none;
+}
+ 
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+ 
+.solar-system {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.orbit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fafbfC;
+    border-radius: 50%;
+} 
+ 
+.earth-orbit {
+    width: 165px;
+    height: 165px;
+  -webkit-animation: spin 12s linear 0s infinite;
+}
+ 
+.venus-orbit {
+    width: 120px;
+    height: 120px;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+}
+ 
+.mercury-orbit {
+    width: 90px;
+    height: 90px;
+  -webkit-animation: spin 3s linear 0s infinite;
+}
+ 
+.planet {
+    position: absolute;
+    top: -5px;
+  width: 10px;
+  height: 10px;
+    border-radius: 50%;
+  background-color: #3ff9dc;
+}
+ 
+.sun {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ffab91;
+}
+ 
+.leo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+ 
+.blue-orbit {
+    width: 165px;
+    height: 165px;
+  border: 3px solid #91daffa5;
+  -webkit-animation: spin3D 3s linear .2s infinite;
+}
+ 
+.green-orbit {
+    width: 120px;
+    height: 120px;
+  border: 3px solid #91ffbfa5;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+ 
+.red-orbit {
+    width: 90px;
+    height: 90px;
+  border: 3px solid #ffca91a5;
+  -webkit-animation: spin3D 1s linear 0s infinite;
+}
+ 
+.white-orbit {
+    width: 60px;
+    height: 60px;
+  border: 2px solid #ffffff;
+  -webkit-animation: spin3D 10s linear 0s infinite;
+}
+ 
+.w1 {
+  transform: rotate3D(1, 1, 1, 90deg);
+}
+ 
+.w2 {
+  transform: rotate3D(1, 2, .5, 90deg);
+}
+ 
+.w3 {
+  transform: rotate3D(.5, 1, 2, 90deg);
+}
+ 
+.three-quarter-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fb5b53;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin .5s linear 0s infinite;
+}
+ 
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+ 
+@keyframes spin3D {
+  from {
+    transform: rotate3d(.5,.5,.5, 360deg);
+  }
+  to{
+    transform: rotate3d(0deg);
+  }
+}
+ 
+ 
+/*---------------------------------------------*/
+
+/* Footer */
+
+footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.copyright-text a:hover {
+  text-decoration: underline;
+  color: #3EC1D5;
+}
+
+.copyright-text a {
+  color: #444;
+}
+
+.copyright> p {
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.credits {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.credits a {
+  color: #fff;
 }

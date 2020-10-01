@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+
 import nltk
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
@@ -69,14 +71,16 @@ def search(request):
             named_entity = qry_entered
         else:
             named_entity = (' ').join(named_entity)
-
+            
+         
         result_dict = {'dict': named_entity}
-        site_dict = {'general_answer': gen.general_answer(qry_entered, Driver_Path)} if site=='1' else\
-                     {'wikipedia_result': wiki.scrape_wikipedia(qry_entered)} if site=='2' else\
-                     {'stack_overflow_result': stack.stackoverflow(qry_entered)}
+        
+        site_dict = {'ans': gen.general_answer(qry_entered, Driver_Path), 'site': 'General'} if site=='1' else\
+                     {'ans': wiki.scrape_wikipedia(qry_entered), 'site': 'Wikipedia'} if site=='2' else\
+                     {'ans': stack.stackoverflow(qry_entered), 'site': 'StackOverflow'}
 
         result_dict.update(site_dict)
-        return render(request, 'app/search.html', result_dict)
+        return JsonResponse(result_dict)
         # {'dict':qry_entered,'search_results_key':scrape_function(qry_entered)})
     else:
         return render(request, 'app/search.html')
