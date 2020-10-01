@@ -6,3 +6,4 @@ def scrape_wikipedia(qry):
     # print(list_returned[0])
     # print(wikipedia.summary(list_returned[0]))
     return wikipedia.summary(list_returned[0])
+print(scrape_wikipedia('Networks'))
