@@ -8,9 +8,9 @@ A bot that automates solving a task on a website.We will simply create a Bot whi
 >## 📂&nbsp; RELEVANT TECHNOLOGY
 Any web technology can be used but I am thinking about using NodeJS ecosystem.
 
-* Any Web technology
+* Django
 * Web Scrapping
-* Computer Vision
+* NLP
 
 
 >## 💻&nbsp; GETTING STARTED
