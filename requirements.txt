@@ -17,7 +17,7 @@ isort==5.5.2
 jieba3k==0.35.1
 joblib==0.16.0
 lazy-object-proxy==1.4.3
-lxml==4.5.2
+lxml==4.6.2
 mccabe==0.6.1
 newspaper3k==0.2.8
 nltk==3.5
