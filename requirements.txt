@@ -7,7 +7,7 @@ chardet==3.0.4
 click==7.1.2
 cssselect==1.1.0
 ddg3==0.6.6
-Django==3.1.2
+Django==3.1.6
 feedfinder2==0.0.4
 feedparser==5.2.1
 google==3.0.0
